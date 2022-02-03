@@ -1,0 +1,54 @@
+@import '../base/bootstrap-extended/include';
+@import '../base/components/include';
+
+.dark-layout {
+  .bg-transparent.btn- {
+    svg {
+      color: $theme-dark-body-color;
+    }
+  }
+
+ // Wanted Application
+  .wanted-application .list-view .wanted-card .card-body {
+    border-right-color: $theme-dark-border-color;
+  }
+
+   // Pagination Break
+  .pagination {
+    .break {
+      background-color: $theme-dark-pagination-bg;
+      a {
+        color: $theme-dark-body-color;
+      }
+    }
+  }
+
+  
+
+  
+  // Form Control
+  .form-control {
+    background-color: transparent;
+  }
+  input.form-control.is-valid:not(:focus) {
+    border-color: $success;
+  }
+
+
+  // Horizontal Menu Scrollbar
+  .horizontal-menu {
+    .horizontal-menu-wrapper {
+      .navbar-horizontal {
+        ul.dropdown-menu {
+          &::-webkit-scrollbar-thumb {
+            background: $theme-dark-body-bg;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: $theme-dark-border-color;
+          }
+        }
+      }
+    }
+  }
+}

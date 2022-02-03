@@ -1,0 +1,131 @@
+html[dir='rtl'] {
+  body .ps__rail-y {
+    right: auto !important;
+    left: 1px !important;
+  }
+
+  // RTL Icons
+  .rotate-rtl {
+    transform: rotate(-180deg);
+  }
+
+  // Scroll To Top
+  .scroll-to-top {
+    div:first-of-type {
+      left: auto !important;
+      right: 30px;
+    }
+  }
+
+  // Horizontal menu
+  .horizontal-menu .header-navbar.navbar-horizontal .dropdown-menu .dropdown-toggle::after {
+    background-image: url(str-replace(str-replace($chevron-left, 'currentColor', $body-color), '#', '%23'));
+  }
+
+  // Dropdown RTL Changes
+  .dropdown,
+  .dropup,
+  .btn-group {
+    .dropdown-menu {
+      right: auto !important;
+      left: auto !important;
+
+      &.dropdown-menu-end {
+        left: 0 !important;
+
+        &::before {
+          right: 0.6rem;
+          left: auto;
+        }
+      }
+    }
+  }
+
+  .dropstart {
+    .dropdown-menu {
+      right: 0.5rem !important;
+      margin-right: $dropdown_spacing !important;
+    }
+  }
+
+  .dropend {
+    .dropdown-menu {
+      left: 0.5rem !important;
+      margin-left: $dropdown_spacing !important;
+    }
+  }
+
+  // Breadcrumbs
+  .breadcrumb:not([class*='breadcrumb-']),
+  .breadcrumb.breadcrumb-chevron {
+    .breadcrumb-item + .breadcrumb-item {
+      &:before {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // Pagination
+  .pagination .page-item {
+    &.prev-item,
+    &.prev,
+    &.previous {
+      .page-link {
+        &:before {
+          transform: rotate(180deg);
+        }
+        &:hover,
+        &:active {
+          &:before {
+            transform: rotate(180deg);
+          }
+        }
+      }
+      &.disabled {
+        .page-link {
+          &:before {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+
+    &.next-item,
+    &.next {
+      .page-link {
+        &:after {
+          transform: rotate(180deg);
+        }
+        &:hover,
+        &:active {
+          &:after {
+            transform: rotate(180deg);
+          }
+        }
+      }
+      &.disabled {
+        .page-link {
+          &:before {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+    &:first-of-type,
+    &:last-of-type {
+      .page-link svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+
+  // App Wanted
+  .app-wanted-details {
+    .swiper-button-next {
+      right: 0;
+      left: auto;
+    }
+  }
+
+}

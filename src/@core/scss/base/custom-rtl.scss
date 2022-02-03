@@ -1,0 +1,217 @@
+// ================================================================================================
+//  File Name: custom-rtl.scss
+//  Description: RTL support SCSS file.
+// ================================================================================================
+
+// Variables
+// ------------------------------
+
+@import 'bootstrap-extended/include'; // Bootstrap includes
+@import 'components/include'; // Components includes
+
+pre,
+code,
+kbd,
+samp {
+  direction: ltr;
+}
+// Align icons position
+.main-menu {
+  .navigation li > a > svg,
+  .navigation li > a > i,
+  .dropdown-menu svg,
+  .dropdown-menu i,
+  .dropdown-user > a > svg,
+  .dropdown-user > a > i,
+  .navigation > li > a > svg,
+  .navigation > li > a > i {
+    float: right;
+  }
+
+  .navigation > li ul li > a {
+    display: flex;
+    align-items: center;
+  }
+}
+[type='tel'],
+[type='url'],
+[type='email'],
+[type='number'] {
+  direction: rtl;
+}
+
+// Transformed menu icons
+.vertical-layout.vertical-menu-modern.menu-expanded .main-menu .navigation li.has-sub > a:after,
+.vertical-layout.vertical-overlay-menu.menu-open .main-menu .navigation li.has-sub > a:after {
+  transform: rotate(180deg);
+}
+.vertical-layout.vertical-menu-modern.menu-expanded
+  .main-menu
+  .navigation
+  li.has-sub.open:not(.menu-item-closing)
+  > a:after {
+  transform: rotate(90deg);
+}
+
+// Horizontal menu
+.horizontal-menu .header-navbar.navbar-horizontal .dropdown-menu .dropdown-toggle::after {
+  background-image: url(str-replace(str-replace($chevron-left, 'currentColor', $body-color), '#', '%23'));
+}
+
+// Dropdown RTL Changes
+.header-navbar .navbar-container ul.nav li.dropdown {
+  .dropdown-menu {
+    &::before {
+      top: 1px;
+    }
+  }
+}
+
+.header-navbar {
+  .dropdown,
+  .dropup {
+    .dropdown-menu.dropdown-menu-end::before {
+      right: auto;
+      left: 0.5rem;
+    }
+  }
+}
+
+.dropdown,
+.dropup,
+.btn-group {
+  .dropdown-menu {
+    right: auto !important;
+    left: auto !important;
+
+    &.dropdown-menu-end {
+      left: 0 !important;
+
+      &::before {
+        right: 0.6rem;
+        left: auto;
+      }
+    }
+  }
+}
+
+.dropstart {
+  .dropdown-toggle {
+    &::before {
+      background-image: url(str-replace(str-replace($chevron-right, 'currentColor', $white), '#', '%23')) !important;
+    }
+  }
+  .dropdown-menu {
+    margin-right: $dropdown_spacing !important;
+  }
+}
+
+.dropend {
+  .dropdown-toggle {
+    &::after {
+      background-image: url(str-replace(str-replace($chevron-left, 'currentColor', $white), '#', '%23')) !important;
+    }
+  }
+  .dropdown-menu {
+    left: 0 !important;
+    margin-left: $dropdown_spacing !important;
+  }
+}
+
+// BS Toast
+.toast {
+  right: auto;
+}
+
+// Select2
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  left: 1px;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  float: right;
+}
+.select2-search__field {
+  direction: rtl;
+}
+.select2,
+.select2-container {
+  text-align: right;
+}
+
+
+// Breadcrumb
+.breadcrumb:not([class*='breadcrumb-']),
+.breadcrumb.breadcrumb-chevron {
+  .breadcrumb-item + .breadcrumb-item {
+    &:before {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+// Pagination
+.pagination .page-item {
+  &.prev-item,
+  &.prev,
+  &.previous {
+    .page-link {
+      &:before {
+        transform: rotate(180deg);
+      }
+      &:hover,
+      &:active {
+        &:before {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    &.disabled {
+      .page-link {
+        &:before {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &.next-item,
+  &.next {
+    .page-link {
+      &:after {
+        transform: rotate(180deg);
+      }
+      &:hover,
+      &:active {
+        &:after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    &.disabled {
+      .page-link {
+        &:before {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  direction: ltr;
+}
+
+@media print {
+  code[class*='language-'],
+  pre[class*='language-'] {
+    text-shadow: none;
+  }
+}
+
+
+// Perfect scrollbar RTL fix
+body .ps__rail-y {
+  right: auto !important;
+  left: 1px !important;
+}
