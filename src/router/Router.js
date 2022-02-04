@@ -1,10 +1,7 @@
 // ** React Imports
 import { Suspense, useContext, lazy, Fragment } from 'react'
 
-// ** Utils
-// import { isUserLoggedIn } from '@utils'
 import { useLayout } from '@hooks/useLayout'
-// import { AbilityContext } from '@src/utility/context/Can'
 import { useRouterTransition } from '@hooks/useRouterTransition'
 
 // ** Custom Components
@@ -24,9 +21,6 @@ const Router = () => {
   // ** Hooks
   const { layout, setLayout, setLastLayout } = useLayout()
   const { transition, setTransition } = useRouterTransition()
-
-  // ** ACL Ability Context
-  // const ability = useContext(AbilityContext)
 
   // ** Default Layout
   const DefaultLayout = 'HorizontalLayout'
@@ -54,8 +48,6 @@ const Router = () => {
 
     return { LayoutRoutes, LayoutPaths }
   }
-
-  // const NotAuthorized = lazy(() => import('@src/views/pages/misc/NotAuthorized'))
 
   // ** Init Error Component
   const Error = lazy(() => import('@src/views/pages/misc/Error'))
